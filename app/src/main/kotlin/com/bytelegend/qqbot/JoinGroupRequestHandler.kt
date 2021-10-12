@@ -15,9 +15,7 @@ class JoinGroupRequestHandler(
     private val environment: Environment,
     private val botService: QQBotService
 ) {
-    private val logger = LoggerFactory.getLogger(javaClass).apply {
-        info("start!")
-    }
+    private val logger = LoggerFactory.getLogger(javaClass)
     private val httpApiClient = HttpApiClient(environment)
     suspend fun handle(memberJoinGroupRequest: MemberJoinGroupRequest) {
         val matchResult = SECRET_REGEX.find(memberJoinGroupRequest.requestMessage)
